@@ -1,4 +1,3 @@
-import dotenv
 import requests
 import json
 import os
@@ -108,12 +107,12 @@ def extract_video_data(video_ids):
                 statistics = item['statistics']
                 video_data = {
                     "video_id": video_id,
-                    "title": snippet.get('title'),
-                    "publishedAt": snippet.get('publishedAt'),
-                    "duration": contentDetails.get('duration'),
+                    "title": snippet.get('title',None),
+                    "publishedAt": snippet.get('publishedAt',None),
+                    "duration": contentDetails.get('duration',None),
                     "viewCount": statistics.get('viewCount',None),
                     "likeCount": statistics.get('likeCount',None),
-                    "commentCount": statistics.get('commentCount')
+                    "commentCount": statistics.get('commentCount',None)
                 }
                 extracted_data.append(video_data)
 
