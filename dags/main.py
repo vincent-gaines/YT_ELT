@@ -26,7 +26,7 @@ default_args = {
 with DAG(
     dag_id='produce_json'
     , default_args = default_args
-    , descriptio = 'DAG to produce json file with raw data from YouTube API'
+    , description = 'DAG to produce json file with raw data from YouTube API'
     , schedule_interval='0 14 * * *'
     , start_date=None
     , catchup = False
