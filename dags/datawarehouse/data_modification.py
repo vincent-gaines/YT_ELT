@@ -71,8 +71,6 @@ def update_rows(cur, conn, schema, row):
         cur.execute(
             f"""UPDATE {schema}.{table}
             SET "Video_Title" = %({video_title})s,
-                "Upload_Date" = %({upload_date})s,
-                "Duration" = %({duration})s,
                 "Video_Views" = %({video_views})s,
                 "Likes_Count" = %({likes_count})s,
                 "Comments_Count" = %({comments_count})s

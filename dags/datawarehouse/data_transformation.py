@@ -13,13 +13,13 @@ def parse_duration(duration_str):
     If the video is at least one hour long, the duration is in the format PT#H#M#S, in which the # preceding 
     the letter H specifies the length of the video in hours and all of the other details are the same as 
     described above. If the video is at least one day long, the letters P and T are separated, and the 
-    value's format is P#DT#H#M#S. Please refer to the ISO 8601 specification for complete details.
+    value"s format is P#DT#H#M#S. Please refer to the ISO 8601 specification for complete details.
     """
     
     duration_str = duration_str.replace("P", "").replace("T", "")
     
-    components = ['D', 'H', 'M', 'S']
-    values = {'D': 0, 'H': 0, 'M': 0, 'S': 0}
+    components = ["D", "H", "M", "S"]
+    values = {"D": 0, "H": 0, "M": 0, "S": 0}
     
     
     for component in components:
@@ -27,10 +27,10 @@ def parse_duration(duration_str):
             value, duration_str = duration_str.split(component)
             values[component] = int(value)
             
-    total_duration = timedelta(days=values['D'], 
-                               hours=values['H'], 
-                               minutes=values['M'], 
-                               seconds=values['S'])
+    total_duration = timedelta(days=values["D"], 
+                               hours=values["H"], 
+                               minutes=values["M"], 
+                               seconds=values["S"])
    
     return total_duration
 
@@ -38,10 +38,10 @@ def parse_duration(duration_str):
 def transform_data(row):
     """Transform the data by parsing the duration column and adding a new column with the total duration in seconds."""
     
-    duration_td = parse_duration(row['duration'])
+    duration_td = parse_duration(row["Duration"])
     
-    row['Duration'] = (datetime.min + duration_td).time()
+    row["Duration"] = (datetime.min + duration_td).time()
     
-    row['Video_Type'] = 'Shorts' if duration_td.total_seconds() <= 60 else 'Normal'
+    row["Video_Type"] = "Shorts" if duration_td.total_seconds() <= 60 else "Normal"
     
     return row
