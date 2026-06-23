@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: core_yt_api
+    description: "Core model for YouTube API data."
+
+    columns:
+      - name: Video_ID
+        description: "Unique identifier for each YouTube video."
+        tests:
+          - not_null
+          - unique
+
+      - name: Video_Title
+        description: "Title for each YouTube video."
+        tests:
+          - not_null
+      
+      - name: Upload_Date
+        description: "Date Uploaded for each YouTube video."
+        tests:
+          - not_null
+       
+      - name: Duration
+        description: "Duration for each YouTube video."
+        tests:
+          - not_null
+       
+      - name: Video_Type
+        description: "Video Type for each YouTube video."
+        tests:
+          - not_null
+       
+      - name: Video_Views
+        description: "Video View Count for each YouTube video."
+        tests:
+          - not_null
+     
+      - name: Likes_Count
+        description: "Total number of likes for the video."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "Likes_Count <= Video_Views"
+
+      - name: Comments_Count
+        description: "Total number of comments for the video."
+        tests:
+          - dbt_utils.expression_is_true:
+              expression: "Comments_Count <= Video_Views"
+

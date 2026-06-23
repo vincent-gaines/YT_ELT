@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: youtube
+    schema: clean
+    tables:
+      - name: yt_api
+        description: "Cleaned YouTube API data loaded via PySpark."

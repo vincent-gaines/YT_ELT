@@ -1,0 +1,16 @@
+name: "yt_project"
+version: "1.0"
+profile: "yt_profile"
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  yt_project:
+    core:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

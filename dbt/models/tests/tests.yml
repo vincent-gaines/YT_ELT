@@ -1,0 +1,3 @@
+tests:
+  - likes_count_not_greater_than_views
+  - comments_count_not_greater_than_views
