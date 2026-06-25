@@ -50,7 +50,7 @@ x-airflow-common:
   # Image stored on Dockerhub
   image: ${DOCKERHUB_NAMESPACE}/${DOCKERHUB_REPOSITORY}:latest
   # Use the .env file to read the connection params and variables - SWITCH THIS OFF WHEN USING GITHUB ACTIONS
-  # env_file:
+  #env_file:
   #   - .env
   environment:
     &airflow-common-env
